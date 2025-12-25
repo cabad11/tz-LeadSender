@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Channels Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Поиск по названию, телефону, ID...">
+            </div>
+            <button class="add-button" id="addChannelBtn">
+                + Добавить канал
+            </button>
+        </div>
+
+        <div class="table-container">
+            <table id="channelsTable" class="desktop-table">
+                <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>Воронка и этап</th>
+                        <th>Данные аккаунта</th>
+                        <th>Статус</th>
+                        <th>Действие</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+
+            <div id="cardsContainer" class="cards-container"></div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="modalContent">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <span>Канал №150511</span>
+                </div>
+                <button class="modal-close" id="modalCloseBtn">&times;</button>
+            </div>
+            <div class="modal-content">
+                <div class="qr-section">
+                    <div class="qr-status">Статус: отсканируйте QR</div>
+                    <div class="qr-code" id="qrcode"></div>
+                </div>
+                <div class="instructions-section">
+                    <ol class="instructions-list">
+                        <li>Откройте Telegram</li>
+                        <li>Выберите связанные устройства</li>
+                        <li>Выберите добавить новое устройство</li>
+                        <li>Наведите камеру на QR-код</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="context-menu" id="contextMenu">
+        <div class="context-menu-item" data-action="settings">Настройки</div>
+        <div class="context-menu-item delete" data-action="delete">Удалить сессию</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
